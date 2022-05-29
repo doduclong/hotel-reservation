@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Booking Page</title>
+    </head>
+    <body>
+        <h1>New Booking</h1>
+        <h3 style="color: red;" th:text="${error}"></h3>
+        <form method="post" th:action="@{/booking/add}" th:object="${booking}" id="add-booking">
+            <span>Hotel: </span>
+            <span>
+            <select th:field="*{hotel_id}">
+    		<option th:each="i : ${listHotel}" th:value="${i.id}" th:text="${i.id+ ' (' +i.name+ ')'}" ></option>
+			</select>
+			</span><br>
+			
+            <span>Room: </span>
+            <span>
+            <select th:field="*{room_id}">
+    		<option th:each="i : ${listRoom}" th:value="${i.id}" th:text="${i.id+ ' (' +i.name+ ')'}" ></option>
+			</select>
+			</span><br>
+			
+			<span>User ID: </span> 
+            <span><input type="number" min="0" name="user_id" required th:field="*{user_id}"></span><br>
+			
+<!--             <span>Check in: </span> -->
+            <span>
+        
+  				<label for="checkin">Check in:</label>
+  				<input type="date" id="checkin" name="checkin" required pattern="\d{4}-\d{2}-\d{2}">
+			
+            </span><br>
+            
+            <span>
+            
+  				<label for="checkout">Check out:</label>
+  				<input type="date" id="checkout" name="checkout" required pattern="\d{4}-\d{2}-\d{2}">
+		
+            </span><br>
+            
+            
+            <span>Total: </span> 
+            <span><input type="number" min="0" name="total" required th:field="*{total}"></span><br>
+        </form>
+        <button type="submit" form="add-booking">Book</button>
+            <a href="/booking/all"><button>Return</button></a>
+    </body>
+</html>

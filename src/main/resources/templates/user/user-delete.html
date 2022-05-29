@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Delete User</title>
+<style>
+#wrapper {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+	margin-left: 450px;
+	margin-right: 450px;
+}
+
+.center {
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-top: 10px;
+}
+
+.buttonsm {
+	margin-top: 15px;
+	margin-left: 700px;
+}
+</style>
+</head>
+<body>
+	<h1 style="text-align:center;">Are you sure you want to delete this user?</h1>
+	<div id="wrapper">
+	<form method="post" th:action="@{/user/delete}" id="delete">
+		<span>user ID: </span> <span th:text="${user.id}"></span><br> <span>
+			Username: </span> <span th:text="${user.username}"></span><br> <span>
+	
+
+	</form>
+	</div>
+	<button class="buttonsm" type="submit" form="delete">Yes</button>
+	<a href="/user/all"><button>No</button></a>
+</body>
+</html>

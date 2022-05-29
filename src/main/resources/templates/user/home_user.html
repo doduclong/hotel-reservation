@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home</title>
+<style>
+body {
+	background-image: url('images/wallpaper.jpg');
+	background-size:     cover;                      /* <------ */
+    background-repeat:   no-repeat;
+}
+</style>
+
+<!-- <link rel="stylesheet" th:href="@{css/home.css}"> -->
+<link rel="stylesheet" th:href="@{css/home.css}">
+<link rel="icon" th:href="@{images/white-logo.png}">
+</head>
+<body>
+	<div class="main-overlay js-main-overlay"></div>
+
+	<!-- Main Cover Section -->
+	<section class="cover-main" id="home">
+		<header>
+			<nav class="nav-wrapper">
+				<div class="logo">
+					<a th:href="@{/}"> <img src="images/white-logo.png" class="logo">
+					</a>
+				</div>
+
+				<!-- Menu bar -->
+				<ul class="menu">
+					<li><a class="active" th:href="@{/}">Home</a></li>
+					<li><a th:href="@{/user/room/all}">Rooms</a></li>
+					<li><a th:href="@{/user/hotel/all}">Hotels</a></li>
+					<li><a th:href="@{/user/booking/all}">Booking</a></li>
+				</ul>
+			</nav>
+			<div class="menu-trigger js-menu-trigger"></div>
+		</header>
+
+		<!-- Main buttons and title -->
+		<div class="wrapper">
+			<ul id="scene" data-invert-x="false" data-invert-y="false" data-scalar-x="7" data-scalar-y="7"
+				data-friction-x="0.1" data-friction-y="0.1" data-origin-x="0.5" data-origin-y="0.5">
+				<li class="layer name" data-depth="0.90">HOTEL RESERVATION</li>
+				<li class="layer title" data-depth="0.50">Book Online Now !</li>
+				<li class="layer btn btn-main" data-depth="0.30"><a th:href="@{/user/booking/form}"
+						class="reservation-btn">New Booking</a> 
+<!-- 						<a th:href="@{/your-reservations}" class="reservations-btn">Your Reservations</a> <br> 
+						<a th:href="@{/logout}" class="logout-btn">Sign Out</a></li> -->
+			</ul>
+		</div>
+	</section>
+	
+	<section class="section-padding" id="work">
+		<h2 class="sub-title">Hotel Rooms</h2>
+		<div class="container-rooms">
+			<div class="row-room">
+
+				<!-- Single room card -->
+				<div class="col-md-4 col-sm-6">
+					<div class="col-xs-12 fix_p_r">
+						<div class="slide-item card" style="padding: 10px;">
+							<h3>Single Room:</h3>
+							<img src="images/rooms/single.jpg">
+
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Double room card -->
+				<div class="col-md-4 col-sm-6">
+					<div class="col-xs-12 fix_p_r">
+						<div class="slide-item card" style="padding: 10px;">
+							<h3>Double Room:</h3>
+							<img src="images/rooms/family.jpg">
+
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Family room card -->
+				<div class="col-md-4 col-sm-6">
+					<div class="col-xs-12 fix_p_r">
+						<div class="slide-item card" style="padding: 10px;">
+							<h3>Family Room:</h3>
+							<img src="images/rooms/double.jpg">
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Couple room card -->
+				<div class="col-md-4 col-sm-6">
+					<div class="col-xs-12 fix_p_r">
+						<div class="slide-item card" style="padding: 10px;">
+							<h3>Couple room:</h3>
+							<img src="images/rooms/suite.jpg">
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+</body>
+</html>

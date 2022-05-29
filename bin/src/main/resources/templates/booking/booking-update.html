@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Booking Page</title>
+    </head>
+    <body>
+        <h1>Update Booking</h1>
+        <form method="post" th:action="@{/booking/update}" th:object="${booking}" id="update">
+        	<span>Booking ID: </span>
+            <span><input type="text" name="id" required th:field="*{id}" readonly="readonly"></span><br>
+            <span>Hotel ID: </span>
+            <span><textarea name="id" required th:field="*{hotel_id}" ></textarea></textarea></span><br>
+            <span>Room ID: </span>
+            <span><textarea name="room_id" required th:field="*{room_id}"></textarea></span><br>
+            <span>User ID: </span>
+            <span><textarea name="user_id" required th:field="*{user_id}"></textarea></span><br>
+            <span>Check in: </span>
+            <span><input type="date" name="checkin" required th:field="*{checkin}"></span><br>
+            <span>Check out: </span>
+            <span><input type="date" name="checkout" required th:field="*{checkout}"></span><br>
+            <span>Total: </span> 
+            <span><input type="number" min="0" name="total" required th:field="*{total}"></span><br>
+            
+        </form>
+        	<button type="submit" form="update">Update booking</button>
+            <a href="/booking/all"><button>Return</button></a>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Users</title>
+<style type="text/css">
+	td, th {
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+h1{
+	text-align:center;
+}
+
+table{
+	width: 100%;
+} 
+
+.buttonsm {
+	margin-top: 15px;
+    margin-left: 700px;
+}
+</style>
+</head>
+<body>
+
+<h1>Users</h1>
+
+<table>
+	<tr>
+		<th style="width: 60px;">User ID</th>
+		<th style="width: 60px;">Username</th>
+        <th style="width: 60px;">Edit</th>
+        <th style="width: 60px;">Delete</th>
+	</tr>
+	<tr th:each="list : ${list}">
+		<td th:text="${list.id}"></td>
+		<td th:text="${list.username}"></td>
+
+		<td><a th:href="@{'/user/update?id='+${list.id}}">Edit</a></td>
+		<td><a th:href="@{'/user/delete?id='+${list.id}}">Delete</a></td>
+	</tr>
+</table>
+<a th:href="@{/user/form}" ><button class="buttonsm" style="margin-top: 30px;">Add User</button></a>
+<a href="/home"><button>Return</button></a>
+</body>
+</html>

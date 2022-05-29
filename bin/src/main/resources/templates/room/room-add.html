@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>JSP Page</title>
+    </head>
+    <body>
+        <h1>New Room</h1>
+        <h3 style="color: red;" th:text="${error}"></h3>
+        <form method="post" th:action="@{/room/add}" th:object="${room}" id="add-room">
+            <span>Room ID: </span>
+            <span><input type="text" name="id" required th:field="*{id}"></span><br>
+<!--             <span>Hotel ID: </span>
+            <span><input type="text" name="hotel_id" required th:field="*{hotel_id}"></textarea></span><br> -->
+            
+            <span>Hotel ID: </span>
+            <span>
+            <select th:field="*{hotel_id}">
+    		<option th:each="i : ${listHotel}" th:value="${i.id}" th:text="${i.id+ ' (' +i.name+ ')'}" ></option>
+			</select>
+			</span><br>
+            
+            <span>Room Name: </span>
+            <span><textarea name="name" required th:field="*{name}"></textarea></span><br>
+            <span>Room Type: </span>
+            <span><textarea name="type" required th:field="*{type}"></textarea></span><br>
+            <span>Room Description: </span>
+            <span><textarea name="description" required th:field="*{description}"></textarea></span><br>
+            <span>Room Price: </span> 
+            <span><input type="number" min="1" name="price" required th:field="*{price}"></span><br>
+            
+            
+			
+        </form>
+        <button type="submit" form="add-room">Add room</button>
+            <a href="/room/all"><button>Return</button></a>
+    </body>
+</html>

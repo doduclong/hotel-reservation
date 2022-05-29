@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<style>
+
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+#wrapper {
+    border-radius: 5px;
+  	background-color: #f2f2f2;
+  	padding: 20px;
+  	margin-left: 450px;
+    margin-right:450px;
+}
+ 
+.center {
+    margin-left: 50px;
+    margin-right:50px;
+    margin-top:10px;
+}
+
+.buttonsm {
+	margin-top: 15px;
+    margin-left: 700px;
+}
+
+.totaldate {
+	margin-top: 10px;
+    margin-right: 300px;
+}
+	
+.nav-wrapper {
+		width: 100%;
+	}
+
+/* div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+} */
+
+</style>
+<title>Booking</title>
+<link rel="icon" th:href="@{images/white-logo.png}">
+</head>
+<body>
+
+	<!-- Main Cover Section -->
+
+	<h2 style="text-align:center;" id="book">Hotel Booking</h2>
+
+	<h3 style="color: red;" th:text="${error}"></h3>
+	
+	<div id="wrapper">
+	<form method="post" th:action="@{/user/booking/add}" th:object="${booking}"
+		id="add-booking">
+		<div class="center">
+		<label>Hotel: </label> 
+		<select th:field="*{hotel_id}">
+				<option th:each="i : ${listHotel}" th:value="${i.id}"
+					th:text="${i.name}"></option>
+		</select>
+		</div>
+			
+		
+		<div class="center">
+		<label>Room: </label> 
+		<select
+			th:field="*{room_id}">
+				<option th:each="i : ${listRoom}" th:value="${i.id}"
+					th:text="${i.name}+ ' ( ' + ${i.type} + ' - ' +  ${i.price} +'$)'"></option>
+		</select>
+		</div>
+		
+		<div class="center">
+		<label>User ID: </label>
+		<input class="totaldate" type="number"
+			min="0" name="user_id" required th:field="*{user_id}"/><br>
+		</div>
+		
+		<div class="center">
+		<label for="checkin">Check in:</label> 
+		<input class="totaldate"
+			type="date" id="checkin" name="checkin" required
+			pattern="\d{4}-\d{2}-\d{2}"/> <br>
+		</div>
+		
+		<div class="center">
+		<label for="checkout">Check out:</label>
+		<input class="totaldate"
+			type="date" id="checkout" name="checkout" required
+			pattern="\d{4}-\d{2}-\d{2}"/><br>
+		</div>
+		
+<!-- 		<div class="center">
+		<label>Total:      </label>
+		<input class="totaldate" type="number"
+			min="0" name="total" required th:field="*{total}"/>
+		</div> -->
+		
+
+	</form>
+	</div>
+
+	<button class="buttonsm" type="submit" form="add-booking">Book</button>
+	<a href="/home"><button>Return</button></a>
+	
+	
+</body>
+</html>

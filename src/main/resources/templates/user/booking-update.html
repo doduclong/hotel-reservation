@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Update Booking</title>
+<style>
+input[type=text],textarea, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+label{
+	font-weight:bold;
+}
+
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+#wrapper {
+    border-radius: 5px;
+  	background-color: #f2f2f2;
+  	padding: 20px;
+  	margin-left: 450px;
+    margin-right:450px;
+}
+ 
+.center {
+    margin-left: 50px;
+    margin-right:50px;
+    margin-top:10px;
+}
+
+.buttonsm {
+	margin-top: 15px;
+    margin-left: 700px;
+}
+
+.totaldate {
+	margin-top: 10px;
+    margin-right: 300px;
+}
+
+input[type=date], input[type=number]{
+	margin-top: 10px;
+    margin-right: 300px;
+}
+
+</style>
+    </head>
+    <body>
+        <h1 style="text-align:center;">Update Booking</h1>
+        <div id="wrapper">
+        <form method="post" th:action="@{/user/booking/update}" th:object="${booking}" id="update">
+        	<div class="center">
+        	<label>Booking ID: </label>
+            <input type="text" name="id" required th:field="*{id}" readonly="readonly"><br>
+            </div>
+            
+            <div>
+				<input type="hidden" name="hotel_id" th:field="*{hotel_id}" />
+			</div>
+            
+            <div class="center">
+            <label>Hotel: </label>
+            <textarea name="hotel_name" required th:field="*{hotel_name}" readonly="readonly"></textarea><br>
+            </div>
+            
+            <div>
+				<input type="hidden" name="room_id" th:field="*{room_id}" />
+			</div>
+            
+            <div class="center">
+            <label>Room: </label>
+            <textarea name="room_id" required th:field="*{room_name}"readonly="readonly"></textarea><br>
+            </div>
+            
+            <div>
+				<input type="hidden" name="user_id" th:field="*{user_id}" />
+			</div>
+            
+            <div class="center">
+            <label>User: </label>
+            <textarea name="user_id" required th:field="*{username}" readonly="readonly"></textarea><br>
+            </div>
+            
+            <div class="center">
+            <label>Check in: </label>
+            <input type="date" name="checkin" required th:field="*{checkin}"><br>
+    		</div>
+    		
+    		<div class="center">
+            <label>Check out: </label>
+            <input type="date" name="checkout" required th:field="*{checkout}"><br>
+  			</div>
+  			
+  			<div class="center">
+            <label>Total: </label> 
+            <input type="number" min="0" name="total" required th:field="*{total}"><br>
+            </div>
+        </form>
+        </div>
+        	<button class="buttonsm" type="submit" form="update">Update booking</button>
+            <a href="/user/booking/all"><button>Return</button></a>
+    </body>
+</html>

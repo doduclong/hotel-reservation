@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Room Page</title>
+<style>
+input[type=text],select, textarea {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+label{
+	font-weight:bold;
+}
+
+
+input[type=submit] {
+	width: 100%;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type=submit]:hover {
+	background-color: #45a049;
+}
+
+#wrapper {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+	margin-left: 450px;
+	margin-right: 450px;
+}
+
+.center {
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-top: 10px;
+}
+
+.buttonsm {
+	margin-top: 15px;
+	margin-left: 700px;
+}
+
+.totaldate {
+	margin-top: 10px;
+	margin-right: 300px;
+}
+</style>
+</head>
+<body>
+
+	<div>
+		<a style="color:black;font-size:30px;" th:href="@{/}">Home</a>
+	</div>
+
+	<h1 style="text-align:center;">New Room</h1>
+<!-- 	<h3 style="color: red;" th:text="${error}"></h3> -->
+	
+	<div id="wrapper">
+	<form method="post" th:action="@{/room/add}" th:object="${room}"
+		id="add-room">
+
+		<div class="center">
+		<label>Hotel Name: </label> 
+		<select th:field="*{hotel_id}">
+				<option th:each="i : ${listHotel}" th:value="${i.id}"
+					th:text="${i.name}"></option>
+		</select><br> 
+		</div>
+		
+		<div class="center">
+		<label>Room Name: </label> 
+		<textarea name="name"
+				required th:field="*{name}"></textarea><br> 
+		</div>
+		
+		<!-- <div class="center">
+		<label>Room Type: </label> 
+	    <textarea name="type" required th:field="*{type}"></textarea><br>
+		</div> -->
+		
+		<div class="center">
+		<label>Room Type: </label> 
+		<select th:field="*{type}">
+				<option value="Single">Single</option>
+  				<option value="Double">Double</option>
+  				<option value="Family">Family</option>
+  				<option value="Couple">Couple</option>
+		</select><br> 
+		</div>
+		
+		<div class="center">
+		<label>Room Description: </label> 
+		<textarea name="description" required th:field="*{description}"></textarea><br>
+		</div>
+		
+		<div class="center">
+		<label>Room Price: </label> 
+		<input type="number" min="1"
+			name="price" required th:field="*{price}"><br>
+		</div>
+	</form>
+	</div>
+	
+	<button class="buttonsm" type="submit" form="add-room">Add room</button>
+	<a href="/room/all"><button>Return</button></a>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style type="text/css">
+	 td, th {
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+</style>
+</head>
+<body>
+
+<h1>Rooms</h1>
+
+<table>
+	<tr>
+		<th style="width: 60px;">Room ID</th>
+		<th style="width: 60px;">Hotel ID</th>
+		<th style="width: 60px;">Name</th>
+		<th style="width: 60px;">Type</th>
+        <th style="width: 200px;">Description</th>
+        <th style="width: 60px;">Price</th>
+        <th style="width: 60px;"></th>
+        <th style="width: 60px;"></th>
+	</tr>
+	<tr th:each="list : ${list}">
+		<td th:text="${list.id}"></td>
+		<td th:text="${list.hotel_id}"></td>
+		<td th:text="${list.name}"></td>
+		<td th:text="${list.type}"></td>
+		<td th:text="${list.description}"></td>
+		<td th:text="${'$'+list.price}"></td>
+		<td><a th:href="@{'/room/update?id='+${list.id}}">
+		<img th:src="@{static/images/delete2.png}" width="30px" height="30px"></a></td>
+		
+		<td><a th:href="@{'/room/delete?id='+${list.id}}">Delete</a></td>
+	</tr>
+</table>
+<a th:href="@{/room/form}" ><button style="margin-top: 30px;">Add Room</button></a>
+<a href="/"><button>Return</button></a>
+</body>
+</html>

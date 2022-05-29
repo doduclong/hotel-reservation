@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Update User</title>
+        
+        <style>
+input[type=text],textarea{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+label{
+	font-weight:bold;
+}
+
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+#wrapper {
+    border-radius: 5px;
+  	background-color: #f2f2f2;
+  	padding: 20px;
+  	margin-left: 450px;
+    margin-right:450px;
+}
+ 
+.center {
+    margin-left: 50px;
+    margin-right:50px;
+    margin-top:10px;
+}
+
+.buttonsm {
+	margin-top: 15px;
+    margin-left: 700px;
+}
+
+.totaldate {
+	margin-top: 10px;
+    margin-right: 300px;
+}
+
+input[type=number]{
+	margin-top: 10px;
+    margin-right: 300px;
+}
+
+</style>
+    </head>
+    <body>
+        <h1 style="text-align:center;">Update User</h1>
+        
+        <div id="wrapper">
+        <form method="post" th:action="@{/user/update}" th:object="${user}" id="update">
+            <div class="center">
+            <label>User ID: </label>
+            <input type="text" name="id" required th:field="*{id}" readonly="readonly"><br>
+            </div>
+            
+            <div class="center">
+            <label>UserName: </label>
+            <input type="text" name="username" required th:field="*{username}"></input><br>
+            </div>
+            
+            <div class="center">
+            <label>Password: </label>
+            <input type="password" name="password" required th:field="*{password}"></input><br>
+            </div>
+            
+           
+        </form>
+        </div>
+        	<button class="buttonsm" type="submit" form="update">Update user</button>
+            <a href="/user/all"><button>Return</button></a>
+    </body>
+</html>

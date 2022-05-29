@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Update Hotel</title>
+        
+        <style>
+input[type=text],textarea{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+label{
+	font-weight:bold;
+}
+
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+#wrapper {
+    border-radius: 5px;
+  	background-color: #f2f2f2;
+  	padding: 20px;
+  	margin-left: 450px;
+    margin-right:450px;
+}
+ 
+.center {
+    margin-left: 50px;
+    margin-right:50px;
+    margin-top:10px;
+}
+
+.buttonsm {
+	margin-top: 15px;
+    margin-left: 700px;
+}
+
+.totaldate {
+	margin-top: 10px;
+    margin-right: 300px;
+}
+
+input[type=number]{
+	margin-top: 10px;
+    margin-right: 300px;
+}
+
+</style>
+    </head>
+    <body>
+        <h1 style="text-align:center;">Update Hotel</h1>
+        
+        <div id="wrapper">
+        <form method="post" th:action="@{/hotel/update}" th:object="${hotel}" id="update">
+            <div class="center">
+            <label>Hotel ID: </label>
+            <input type="text" name="id" required th:field="*{id}" readonly="readonly"><br>
+            </div>
+            
+            <div class="center">
+            <label>Name: </label>
+            <textarea name="name" required th:field="*{name}"></textarea><br>
+            </div>
+            
+            <div class="center">
+            <label>Address: </label>
+            <textarea name="address" required th:field="*{address}"></textarea><br>
+            </div>
+            
+            <div class="center">
+            <label>Star Level: </label> 
+            <input type="number" min="0" name="starLevel" required th:field="*{starLevel}"><br>
+            </div>
+        </form>
+        </div>
+        	<button class="buttonsm" type="submit" form="update">Update hotel</button>
+            <a href="/hotel/all"><button>Return</button></a>
+    </body>
+</html>

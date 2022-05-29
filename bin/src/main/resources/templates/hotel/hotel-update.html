@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Hotel Page</title>
+    </head>
+    <body>
+        <h1>Update Room</h1>
+        <form method="post" th:action="@{/hotel/update}" th:object="${hotel}" id="update">
+            <span>Hotel ID: </span>
+            <span><input type="text" name="id" required th:field="*{id}" readonly="readonly"></span><br>
+            <span>Name: </span>
+            <span><textarea name="name" required th:field="*{name}"></textarea></span><br>
+            <span>Address: </span>
+            <span><textarea name="address" required th:field="*{address}"></textarea></span><br>
+            <span>Star Level: </span> 
+            <span><input type="number" min="0" name="starLevel" required th:field="*{starLevel}"></span><br>
+            
+        </form>
+        	<button type="submit" form="update">Update hotel</button>
+            <a href="/hotel/all"><button>Return</button></a>
+    </body>
+</html>

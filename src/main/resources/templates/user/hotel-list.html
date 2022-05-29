@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hotels</title>
+<style type="text/css">
+	td, th {
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+h1{
+	text-align:center;
+}
+
+table{
+	width: 100%;
+} 
+
+.buttonsm {
+	margin-top: 15px;
+    margin-left: 700px;
+}
+</style>
+</head>
+<body>
+
+<h1>Hotels</h1>
+
+<table>
+	<tr>
+		<th style="width: 60px;">Hotel ID</th>
+		<th style="width: 60px;">Name</th>
+		<th style="width: 200px;">Address</th>
+        <th style="width: 60px;">Star Level</th>
+	</tr>
+	<tr th:each="list : ${list}">
+		<td th:text="${list.id}"></td>
+		<td th:text="${list.name}"></td>
+		<td th:text="${list.address}"></td>
+		<td th:text="${list.starLevel+'*'}"></td>
+	</tr>
+</table>
+<a href="/user"><button class="buttonsm">Return</button></a>
+</body>
+</html>

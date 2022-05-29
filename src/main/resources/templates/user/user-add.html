@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Users</title>
+<style>
+input[type=text], textarea {
+	width: 100%;
+	padding: 12px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+label{
+	font-weight:bold;
+}
+
+input[type=submit] {
+	width: 100%;
+	background-color: #4CAF50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type=submit]:hover {
+	background-color: #45a049;
+}
+
+#wrapper {
+	border-radius: 5px;
+	background-color: #f2f2f2;
+	padding: 20px;
+	margin-left: 450px;
+	margin-right: 450px;
+}
+
+.center {
+	margin-left: 50px;
+	margin-right: 50px;
+	margin-top: 10px;
+}
+
+.buttonsm {
+	margin-top: 15px;
+	margin-left: 700px;
+}
+
+.totaldate {
+	margin-top: 10px;
+	margin-right: 300px;
+}
+</style>
+</head>
+<body>
+	<div>
+		<a style="color:black;font-size:30px;" th:href="@{/home}">Home</a>
+	</div>
+
+	<h1 style="text-align:center;">New User</h1>
+<!-- 	<h3 style="color: red;" th:text="${error}"></h3> -->
+	<div id="wrapper">
+	<form method="post" th:action="@{/user/add}" th:object="${user}"
+		id="add-user">
+		<div class="center">
+		<label>User Name: </label> 
+		<input type=text name="username" required
+				th:field="*{username}"></input><br> 
+		</div>
+		
+		<div class="center">		
+		<label>Password:</label> 
+		<input type="password" name="password" required th:field="*{password}"></input><br>
+		</div>
+		
+		
+	</form>
+	</div>
+	
+	<button class="buttonsm" type="submit" form="add-user">Add user</button>
+	<a href="/user/all"><button>Return</button></a>
+	
+</body>
+</html>
